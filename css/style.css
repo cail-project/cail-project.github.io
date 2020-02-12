@@ -60,7 +60,7 @@ body{font-family: sans-serif;background-color: #888;-webkit-font-smoothing: anti
 /* ------- Testimonials Section -----*/
 #testimonials{margin: 100px 0;}
 .testimonials{border-left: 3px solid #1723b1; margin: 50px 0;}
-.testimonials img{height: 60px;width: 60px;border-radius: 50%; margin: 0 10px;}
+.testimonials img{height: 60px;width: 60px; margin: 0 10px;}
 .user-details{display: inline-block;font-size: 12px;}
 .feedback{font-style: italic;}
 /* ----- Footer ------*/

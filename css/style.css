@@ -20,7 +20,7 @@ body{font-family: sans-serif;background-color: #888;-webkit-font-smoothing: anti
 .navbar-toggler{outline: none !important;}
 /* --------- Banner ---------- */
 .banner{background: linear-gradient(to right, #1723b1,#58f0ff);color: #fff; padding-top: 5%;}
-.promo-title{font-size: 3rem; font-weight: 600; margin-top: 3em;}
+.promo-title{font-size: 3rem; font-weight: 600; margin-top: 1em;}
 .join-title{font-size: 1.44rem;}
 .link-play{text-decoration: none;}
 .link-play:hover{color: #58f0ff;text-decoration: none!important;}

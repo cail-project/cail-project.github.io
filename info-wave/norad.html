@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    InfoWave
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/now-ui-dashboard.css?v=1.2.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="assets/demo/demo.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.2/math.min.js"></script>
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="blue">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="active" id="goAbout">
+            <a href="#" class="goAbout">
+              <i class="now-ui-icons business_bulb-63"></i>
+              <p>About</p>
+            </a>
+          </li>
+          </li>
+          <li id="goAnalyse">
+            <a href="#" class="goAnalyse">
+              <i class="now-ui-icons media-2_sound-wave"></i>
+              <p>Analyse</p>
+            </a>
+          </li>
+          <li id="goLearnMore">
+            <a href="#" class="goLearnMore">
+              <i class="now-ui-icons education_hat"></i>
+              <p>Learn More</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+
+<!-- Modal -->
+<div class="modal fade" id="endFeatures" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Coming soon...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        The InfoWave tool doesn't actually work yet! This page is just meant to illustrate what it will look like once the CAIL project is underway, and the tool is fully up and running. This is simply a demonstration of what we will make widely available as part of the project.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="startPop" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Coming soon...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        The InfoWave tool doesn't actually work yet! This page is just meant to illustrate what it will look like once the CAIL project is underway, and the tool is fully up and running. This is simply a demonstration of what we will make widely available as part of the project. Close this window to look around and see what we envision for the InfoWave project.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      <div class="panel-header" style="max-height:150px;padding-top:15px; padding-left:10px">
+        <h2 style="color:white;margin-bottom:0">InfoWave</h2>
+        <h3 style="color:grey">An open source tool for analysing information in text</h3>
+      </div>
+      <div class="panel-header panel-header-lg analyse" style="display:none;padding-top:15px">
+        <p style="color:white">Information Content (Surprisal)</p>
+        <canvas id="bigDashboardChart"></canvas>
+      </div>
+      <div class="content analyse" style="display:none; padding-top:25px">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Your text</h4>
+                  <h5 class="card-category" style="color:red;font-size:10px">(Current Sentence)</h5>
+                </div>
+                <div class="card-body ">
+                  <p>There is an open call from the ESRC to use existing datasets to address new problems. <span style="color:red">There will be a bid submitted in March by Rachael, Christine, and Joel.</span> The bid will aim to fund a corpus-based project which will provide crucial insights into the adaptive function of information density in language. The project will shed new light on how information density is adaptively optimised in language. It will also aim to create tools that can be used  by researchers in cognitive science, diagnosticians assessing language impairments, and as a general aid for use in improving writing clarity. These tools will be based primarily on word probabilities (normalised frequencies) from large samples of natural language. For use by researchers, code will be made available for analysing information density in text. For general public use, this code will be integrated with an easy to use web-based analytical tool which can show the current informtion density of a text, and suggest alternative optima.</p>
+    
+                </div>
+                <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <button class="btn-sm btn-light deadlink" id="prevSent">
+                    <i class="now-ui-icons arrows-1_minimal-left"></i>Prev. sentence
+                  </button>
+                  <button class="btn-sm btn-light deadlink" id="nextSent">
+                    <i class="now-ui-icons arrows-1_minimal-right"></i>Next sentence
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Alternative Sentence: <span style="color:green">In March, Christine will be submittting a bid with Joel and Rachael</span></h5>
+                
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="optimisedIC"></canvas>
+                </div>
+              </div>
+               <div class="card-footer">
+                <p><span style="color:green">Optimal DORM: <span id="optDorm"></span></span> <span style="color:grey">(Current DORM: <span id="curDorm"></span>)</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-chart">
+                <div class="card-header">
+                  <h5 class="card-category">DORM trajectory of entire text</h5>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="wholeDORM"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-chart">
+                <div class="card-header">
+                  <h4 class="card-category">New Text</h4>
+                </div>
+                <div class="card-body">
+                  <label for="textEntry">Paste text here</label>
+                  <input type="text" id="textEntry" style="width:100%;height:200px">
+                </div>
+                <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <button class="btn-sm btn-light deadlink">
+                    <i class="now-ui-icons files_paper"></i>Analyse
+                  </button>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+      
+      <div class="content about">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header ">
+                <h5 class="card-category">About</h5>
+                <h4 class="card-title">What is this tool for?</h4>
+                
+              </div>
+              <div class="card-body ">
+                <p>This tool currently under development, so this is just a demo.</p>
+                <p>The tool will be for analysing the information density of text. The tool can be used by researchers in cognitive science, practitioners in health and business communication, diagnosticians assessing language impairments, or by anyone who might find information density analysis useful. This tool uses word probabilities (frequencies) from large samples of natural language to estimate the trajectory of information in a given sentence. Users will be able to find out what the information density of their text is, and the tool will suggest alternatives for each sentence with more optimised information density (where a more optimal distribution is possible).</p>
+
+                <p>Ideally, information should be distributed throughout a sentence evenly, rather than clustering at a certain point. This even, uniform distribution means that anything that interrupts a hearer or reader's processing of the sentence - from noise to short lapses in attention - is less likely to impair their overall understanding of the utterance or text. We feed the word probabilities in any sentence you provide to an algorithm which attempts to distribute information more uniformly if it can. The tool will show you the actual information density of your text, as well as a potential optimum.</p>
+
+                <h3>Click 'Analyse' on the left to see what the tool will look like.</h3>
+
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content learnMore" style="display:none">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header ">
+                <h5 class="card-category">What</h5>
+                <h4 class="card-title">What is this all about?</h4>
+                
+              </div>
+              <div class="card-body ">
+                <p>This tool doesn't exist yet, but this is meant to show what it will look like once development has been completed. Read more about the tool and the project that will develop it below.</p>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header ">
+                <h5 class="card-category">Who</h5>
+                <h4 class="card-title">Who made this tool?</h4>
+                
+              </div>
+              <div class="card-body ">
+                <p>The tool will be developed as part of the <a href="https://cail-project.github.io" target="_blank">CAIL Project</a>.</p>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header ">
+                <h5 class="card-category">How</h5>
+                <h4 class="card-title">How does it work?</h4>
+                
+              </div>
+              <div class="card-body ">
+                <p>This tool uses word probabilities (normalised frequencies) from large samples of natural language to estimate the trajectory of information in a given sentence. According to information theory, lower probability (frequency) words are generally more informative. Ideally, information should be distributed throughout a sentence evenly: this means that anything that interrupts a reader or hearer's processing of the sentence - from noise to short lapses in attention - is less likely to impair their overall understanding of the utterance or text. We feed the word probabilities in any sentence you provide to an algorithm which attempts to distribute information more uniformly if it can. The tool will show you the actual information density of your text, as well as a potential optimum. The tool uses both raw information content based on single word probabilities, as well as calculating a DORM (deviation of rolling means) for the information content across a sentence.</p>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header ">
+                <h5 class="card-category">Get</h5>
+                <h4 class="card-title">Can I use this tool for my work?</h4>
+                
+              </div>
+              <div class="card-body ">
+                <p>The tools developed as part of the NoRAD project are freely available. Code for using the tools <a href ="#" class="deadlink">can be downloaded on Github</a>, including code for this front-end interface, as well as backend Python code for accessing word probabilities. All these materials are free to use and adapt under a CC BY NC SA license.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="copyright" id="copyright"> <p><span  style="font-size:15px">
+            &copy;
+            <a href="https://cail-project.github.io" target="_blank">CAIL Project</a> 2020</span></p> <p>Site design adapted from design by
+            <a href="https://www.invisionapp.com" target="_blank">Invision</a> and code by
+            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="assets/js/core/jquery.min.js"></script>
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
+  <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Chart JS -->
+  <script src="assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="assets/js/now-ui-dashboard.min.js?v=1.2.0" type="text/javascript"></script>
+  <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+  <script src="assets/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+</body>
+
+</html>
